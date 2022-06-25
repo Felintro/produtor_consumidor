@@ -1,4 +1,4 @@
-package br.edu.feitep;
+package br.edu.feitep.buffer;
 
 import java.util.Arrays;
 import java.util.Random;

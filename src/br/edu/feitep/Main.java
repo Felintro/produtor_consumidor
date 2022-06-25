@@ -1,5 +1,9 @@
 package br.edu.feitep;
 
+import br.edu.feitep.buffer.Fila;
+import br.edu.feitep.fabrica.Consumidor;
+import br.edu.feitep.fabrica.Produtor;
+
 import java.util.Scanner;
 
 public class Main {

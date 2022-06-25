@@ -1,4 +1,6 @@
-package br.edu.feitep;
+package br.edu.feitep.fabrica;
+
+import br.edu.feitep.buffer.Fila;
 
 import java.util.Random;
 

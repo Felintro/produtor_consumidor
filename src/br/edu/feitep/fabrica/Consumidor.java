@@ -1,4 +1,6 @@
-package br.edu.feitep;
+package br.edu.feitep.fabrica;
+
+import br.edu.feitep.buffer.Fila;
 
 public class Consumidor extends Thread {
 
