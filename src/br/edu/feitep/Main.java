@@ -13,7 +13,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("======== Bem vindo ao PRODUTOR-CONSUMIDOR ==========");
-        System.out.println("======== Insira o intevalo desejado (em ms): =======");
+        System.out.println("======== Insira o intervalo desejado (em ms): ======");
         System.out.println("======== Recomendados: 500, 1000, 2000 =============");
 
         long tempo = scanner.nextLong();
