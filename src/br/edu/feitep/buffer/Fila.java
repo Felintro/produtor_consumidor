@@ -56,7 +56,11 @@ public class Fila {
 
     @Override
     public String toString() {
-        return "Buffer: " + Arrays.toString(buffer);
+        return "Buffer: " + Arrays.toString(buffer) + " N: " + n;
+    }
+
+    public int getN() {
+        return n;
     }
 
 }

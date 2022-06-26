@@ -20,9 +20,9 @@ public class Main {
 
         Fila buffer = new Fila(20);
         Produtor produtor = new Produtor(buffer, tempo);
-        Consumidor consumidor = new Consumidor(buffer, (long) (1.2*tempo));
+        Consumidor consumidor = new Consumidor(buffer, (long) (tempo*1.2));
         Produtor produtor2 = new Produtor(buffer, tempo);
-        Consumidor consumidor2 = new Consumidor(buffer, (long) (1.2*tempo));
+        Consumidor consumidor2 = new Consumidor(buffer, (long) (tempo*1.2));
 
         produtor.start();
         System.out.println("Produtor iniciado!");
@@ -38,6 +38,8 @@ public class Main {
         produtor2.join();
         consumidor.join();
         consumidor2.join();
+
+        scanner.close();
 
     }
 }
