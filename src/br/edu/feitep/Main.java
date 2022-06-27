@@ -15,31 +15,59 @@ public class Main {
         System.out.println("======== Bem vindo ao PRODUTOR-CONSUMIDOR ==========");
         System.out.println("======== Insira o intervalo desejado (em ms): ======");
         System.out.println("======== Recomendados: 500, 1000, 2000 =============");
-
         long tempo = scanner.nextLong();
 
-        Fila buffer = new Fila(20);
-        Produtor produtor = new Produtor(buffer, tempo);
-        Consumidor consumidor = new Consumidor(buffer, (long) (tempo*1.2));
-        Produtor produtor2 = new Produtor(buffer, tempo);
-        Consumidor consumidor2 = new Consumidor(buffer, (long) (tempo*1.2));
+        System.out.println("======== Quantas threads produtores deseja iniciar? ======");
+        int qtdeProdutores = scanner.nextInt();
 
-        produtor.start();
-        System.out.println("Produtor iniciado!");
-        produtor2.start();
-        System.out.println("Produtor 2 iniciado!");
+        System.out.println("======== Quantas threads consumidores deseja iniciar? ======");
+        int qtdeConsumidores = scanner.nextInt();
 
-        consumidor.start();
-        System.out.println("Consumidor iniciado!");
-        consumidor2.start();
-        System.out.println("Consumidor 2 iniciado!");
-
-        produtor.join();
-        produtor2.join();
-        consumidor.join();
-        consumidor2.join();
+        System.out.println("======== Insira o tamanho do buffer desejado: ==============");
+        int tamanhoBuffer = scanner.nextInt();
 
         scanner.close();
 
+        Fila buffer = new Fila(tamanhoBuffer);
+        Produtor produtores[] = new Produtor[qtdeProdutores];
+        Consumidor consumidores[] = new Consumidor[qtdeConsumidores];
+
+        for(int i = 0; i < qtdeProdutores; i++) {
+            produtores[i] = new Produtor(buffer, tempo);
+            System.out.println("Produtor nº" + i + " preparado!");
+        }
+
+        System.out.println("");
+
+        for(int i = 0; i < qtdeConsumidores; i++) {
+            consumidores[i] = new Consumidor(buffer, tempo);
+            System.out.println("Consumidor nº" + i + " preparado!");
+        }
+
+        System.out.println("");
+        System.out.println("Teste do buffer: " + buffer.toString());
+        System.out.println("");
+
+        for(int i = 0; i < qtdeProdutores; i++) {
+            produtores[i].start();
+            System.out.println("Produtor nº" + i + " lançado!");
+        }
+
+        System.out.println("");
+
+        for(int i = 0; i < qtdeConsumidores; i++) {
+            consumidores[i].start();
+            System.out.println("Consumidor nº" + i + " lançado!");
+        }
+
+        for(int i = 0; i < qtdeProdutores; i++) {
+            produtores[i].join();
+        }
+
+        for(int i = 0; i < qtdeConsumidores; i++) {
+            consumidores[i].join();
+        }
+
     }
+
 }

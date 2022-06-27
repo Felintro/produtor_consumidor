@@ -22,7 +22,6 @@ public class Fila {
             fim = 0; /* Garantir o enfileiramento circular */
         } else {
             fim +=1;
-
         }
 
         n++; /* Incrementa 1 no tamanho do buffer */
@@ -56,7 +55,7 @@ public class Fila {
 
     @Override
     public String toString() {
-        return "Buffer: " + Arrays.toString(buffer) + " N: " + n;
+        return "Buffer: " + Arrays.toString(buffer) + " N: " + n + "\n";
     }
 
     public int getN() {
